@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import { Container } from '@material-ui/core';
+import { useState } from 'react';
 import './App.css';
+import ProductList from './component/ProductList';
+import SearchBar from './component/SearchBar';
 
 function App() {
+  const [searchText, setSearchText] = useState("")
+
+  const onHandleSearchTextChange = (e) => {
+    const searchText = e.target.value
+    setSearchText(searchText)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <SearchBar onHandleSearchTextChange={onHandleSearchTextChange}></SearchBar>
+      <ProductList searchText={searchText}></ProductList>
+    </Container>
   );
 }
 
