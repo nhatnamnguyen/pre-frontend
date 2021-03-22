@@ -20,7 +20,7 @@ function ProductList() {
                 { title: 'name', field: 'name' }
             ]}
             data={products}
-            title="Products liste"
+            title="Products list"
             icons={materialTableIcons}
         />
     )
