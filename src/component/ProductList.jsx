@@ -1,9 +1,10 @@
 import MaterialTable from 'material-table'
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../service/ProductService'
+import materialTableIcons from './MaterialTableIcons'
 
-function ProductList({searchText}) {
-
+function ProductList() {
+    
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -13,13 +14,16 @@ function ProductList({searchText}) {
     }, [])
 
     return (
-        <MaterialTable 
+        <MaterialTable
             columns={[
                 { title: 'Id', field: 'id' },
                 { title: 'name', field: 'name' }
-          ]}
-          data={products}
-          title="Products liste"
+            ]}
+            data={products}
+            title="Products liste"
+            icons={materialTableIcons}
+            options={{paging: false}}
+            onRowSelected={rowData => {console.log(rowData);}}
         />
     )
 }
