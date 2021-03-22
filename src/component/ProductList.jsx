@@ -22,8 +22,6 @@ function ProductList() {
             data={products}
             title="Products liste"
             icons={materialTableIcons}
-            options={{paging: false}}
-            onRowSelected={rowData => {console.log(rowData);}}
         />
     )
 }
